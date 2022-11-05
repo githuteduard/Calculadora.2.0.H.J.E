@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edurdo - Calculadora</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      body{
+        background-color:rgb(0, 30, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="Container">
+      <h1>Calculadora - Eduardo</h1>
+
+      <div class="col-3">
+
+        <div class="mt-1">
+          <input type="text" id="Resultados">
+        </div>
+
+        <div class="mt-1">
+          <button class="btn btn-outline-info" onclick="jboton(1)">1</button>
+          <button class="btn btn-outline-info" onclick="jboton(2)">2</button>
+          <button class="btn btn-outline-info" onclick="jboton(3)">3</button>
+          <button class="btn btn-outline-danger" onclick="jsuma()">+</button>
+        </div>
+
+        <div class="mt-1">
+          <button class="btn btn-outline-info" onclick="jboton(4)">4</button>
+          <button class="btn btn-outline-info" onclick="jboton(5)">5</button>
+          <button class="btn btn-outline-info" onclick="jboton(6)">6</button>
+          <button class="btn btn-outline-danger" onclick="jresta()">-</button>
+        </div>
+
+        <div class="mt-1">
+          <button class="btn btn-outline-info" onclick="jboton(7)">7</button>
+          <button class="btn btn-outline-info" onclick="jboton(8)">8</button>
+          <button class="btn btn-outline-info" onclick="jboton(9)">9</button>
+          <button class="btn btn-outline-danger" onclick="jmult()">*</button>
+        </div> 
+        <div class="mt-1">
+          <button class="btn btn-outline-info" onclick="jboton(0)">0</button>
+          <button class="btn btn-outline-danger" onclick="jDiv()">/</button>
+          <button class="btn btn-outline-success" onclick="jborra()">C</button>
+          <button class="btn btn-outline-success" onclick="jigual()">=</button>
+        </div>
+
+        <div class="mt-1">
+          <button class="btn btn-outline-info" onclick="jPotencia()">X^</button>
+          <button class="btn btn-outline-info" onclick="jRa()">√</button>
+          <button class="btn btn-outline-info" onclick="jCos()">Cos</button>
+          <button class="btn btn-outline-info" onclick="jTan()">Tan</button>
+          <button class="btn btn-outline-info" onclick="jHello()">Hola</button>
+        </div>
+    </div>
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+
+    <script>
+      //$("#Resultados").val("Bon dia");
+      var numero = "";
+      var Val_1="";
+      var oper=0;
+      raizC=parseInt (1);
+
+      function jsuma(){
+        Val_1 = numero;
+        oper = 1;
+        jborra();
+      }
+      function jresta(){
+        Val_1 = numero;
+        oper = 2;
+        jborra();
+      }
+      function jmult(){
+        Val_1 = numero;
+        oper = 3;
+        jborra();
+      }
+      function jDiv(){
+        Val_1 = numero;
+        oper = 4;
+        jborra();
+      }
+      function jPotencia(){
+        Val_1 = numero;
+        oper = 5;
+        jborra();
+      }
+      function jRa(){
+        Val_1 = numero;
+        oper = 6;
+        jborra();
+      }
+      function jCos(){
+        Val_1 = numero;
+        oper = 7;
+        jborra();
+      }
+      function jTan(){
+        Val_1 = numero;
+        oper = 8;
+        jborra();
+      }
+      function jHello(){
+        Val_1 = numero;
+        oper = 9;
+        jborra();
+      }
+      function jigual(){
+        if(oper == 1){
+          tmp= parseInt(Val_1) + parseInt(numero);
+          $("#Resultados").val(tmp);
+          numero = tmp;
+        }
+        if(oper == 2){
+          tmp= parseInt(Val_1) - parseInt(numero);
+          $("#Resultados").val(tmp);
+          numero = tmp;
+        }
+        if(oper == 3){
+          tmp= parseInt(Val_1) * parseInt(numero);
+          $("#Resultados").val(tmp);
+          numero = tmp;
+        }
+        if(oper == 4){
+          tmp= parseInt(Val_1) / parseInt(numero);
+          $("#Resultados").val(tmp);
+          numero = tmp;
+        }
+        if(oper == 5){
+          tmp = Val_1;
+          while (numero > 1){
+            tmp = parseInt (tmp) * parseInt (Val_1);
+            numero = parseInt (numero) - 1;
+          }
+          $("#Resultados").val(tmp);
+          numero = tmp;
+        }
+        if(oper == 6){
+          tmp = Math.sqrt(numero);
+          $("#Resultados").val(tmp);
+          numero = tmp;
+        }
+        if(oper == 7){
+          tmp = Math.cos(numero);
+          $("#Resultados").val(tmp);
+          numero = tmp;
+        }
+        if(oper == 8){
+          tmp = Math.atan(numero);
+           $("#Resultados").val(tmp);
+          numero = tmp;
+        }
+
+        if(oper == 9){
+          tmp = "Hola Eduardo Hernandez Juarez"
+            $("#Resultados").val(tmp);
+            numero = tmp;
+        }
+
+      oper = 0;
+    }
+
+      function jboton( valor ){
+        //alert( valor );
+        numero = numero + valor;
+        $("#Resultados").val(numero);
+      }
+
+      function jborra (){
+        $("#Resultados").val("");
+        numero = "";
+
+      }
+    </script>
+
+  </body>
+</html>
